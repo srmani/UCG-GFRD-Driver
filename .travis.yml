@@ -14,7 +14,7 @@ branches:
     - master
 
 install:
-    - if test "$CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install -y libopenmpi-dev openmpi-bin ; fi
+    - if test "$CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install -y libmpich-dev mpich ; fi
     - source scripts/lammps.sh
 
 script:
