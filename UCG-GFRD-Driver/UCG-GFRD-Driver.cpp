@@ -43,17 +43,72 @@ int main(int argc, char **argv) {
     throw runtime_error("The -mdi command line option was not provided.");
   }
 
-  // Connect to the engines
-  // <YOUR CODE GOES HERE>
+  // Connect to the engines {LAMMPS and GFRD: engine names}
+  // following lines will change to incorporate GFRD
+  MDI_Comm LAMMPS_comm=MDI_COMM_NULL;
+  int nengines = 1;  
+  for (int iengine=0; iengine < nengines; iengine++)
+  {
+    MDI_Comm comm;
+    MDI_Accept_Communicator(&comm);
+
+    // Determine the name of this engine
+    char* engine_name = new char[MDI_NAME_LENGTH];
+    MDI_Send_Command("<NAME", comm);
+    MDI_Recv(engine_name, MDI_NAME_LENGTH, MDI_CHAR, comm);
+ 
+    cout << "Engine name: " << engine_name << endl;
+
+    if ( strcmp(engine_name, "LAMMPS") == 0 ) {
+      if ( LAMMPS_comm != MDI_COMM_NULL ) {
+	throw runtime_error("Accepted a communicator from a second LAMMPS engine. Check the number of LAMMPS input calls");
+      }
+      LAMMPS_comm = comm;
+    }
+    /* else if ( strcmp(engine_name, "GFRD") == 0 ) {
+      if ( GFRD_comm != MDI_NULL_COMM ) {
+	throw runtime_error("Accepted a communicator from a second GFRD engine. Check the number of GFRD input calls");
+      }
+      GFRD_comm = comm;
+      }*/
+    else {
+      throw runtime_error("Unrecognized engine name.");
+    }
+    delete[] engine_name;
+  }
 
   // Perform the simulation
-  // <YOUR CODE GOES HERE>
+  int niterations=10; //number of simulation steps
+  int natoms;
+  double energy;
+  double ke, pe;
 
+  // Receive the number of atoms from the LAMMPS engine
+  MDI_Send_Command("<NATOMS", LAMMPS_comm);
+  MDI_Recv(&natoms, 1, MDI_INT, LAMMPS_comm);// Receive the number of atoms from the LAMMPS engine
+
+  cout << "Number of atoms: " << natoms << endl;
+
+  // Have the MM engine initialize a new MD simulation
+  MDI_Send_Command("@INIT_MD", LAMMPS_comm);
+  cout<<"initialize MD"<<endl;
+  for(int ii=0;ii<niterations;ii++)
+  {
+
+    MDI_Send_Command("@FORCES", LAMMPS_comm);
+
+    MDI_Send_Command("<ENERGY", LAMMPS_comm);
+    MDI_Recv(&energy, 1, MDI_DOUBLE, LAMMPS_comm);
+    
+    MDI_Send_Command("@COORDS", LAMMPS_comm);
+
+    cout<<"iteration: "<<ii<<' '<<energy<<endl;
+  }
+  
   // Send the "EXIT" command to each of the engines
-  // <YOUR CODE GOES HERE>
+  MDI_Send_Command("EXIT", LAMMPS_comm);
 
   // Synchronize all MPI ranks
   MPI_Barrier(world_comm);
-
   return 0;
 }

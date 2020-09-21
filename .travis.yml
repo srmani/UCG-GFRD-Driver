@@ -1,0 +1,22 @@
+language: c++
+
+jobs:	
+  include:
+    - name: "UCG-GFRD Compilation and Job Test" 
+      os: linux
+      dist: trusty
+      env:
+        - CC=mpicc 
+        - CXX=mpic++
+
+branches:
+  only:
+    - master
+
+install:
+    - if test "$CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install -y libopenmpi-dev openmpi-bin ; fi
+    - source scripts/lammps.sh
+
+script:
+    - sh scripts/DCE.sh
+    - sh scripts/TwoComponent_TwoStateToySystem.sh

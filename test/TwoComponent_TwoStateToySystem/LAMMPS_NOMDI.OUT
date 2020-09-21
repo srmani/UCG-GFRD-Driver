@@ -1,0 +1,539 @@
+LAMMPS (3 Mar 2020)
+Reading data file ...
+  orthogonal box = (0 0 0) to (115 115 115)
+  1 by 2 by 2 MPI processor grid
+  reading atoms ...
+  76000 atoms
+  reading velocities ...
+  76000 velocities
+  scanning bonds ...
+  1 = max bonds/atom
+  reading bonds ...
+  37500 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:   0          0          0         
+  special bond factors coul: 0          0          0         
+  1 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+  special bonds CPU = 0.00740695 secs
+  read_data CPU = 0.407511 secs
+WARNING: 82 of 250 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:483)
+WARNING: 249 of 250 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:492)
+WARNING: 117 of 250 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:483)
+WARNING: 249 of 250 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:492)
+WARNING: 111 of 250 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:483)
+WARNING: 249 of 250 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:492)
+60000 atoms in group Type1
+15000 atoms in group Type2
+Fix ucg info::
+Total number of states 4
+UCG calculated initial state distribution
+state 0: 30000
+state 1: 7500
+state 2: 1000
+state 3: 0
+Input rate matrix
+0.000000 0.001000 0.000000 0.000000 
+0.001000 0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 0.000084 
+0.000000 0.000000 0.000020 0.000000 
+Input mhcorr matrix
+0.000000 1.730000 0.000000 0.000000 
+-1.730000 0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 -1.382229 
+0.000000 0.000000 1.382229 0.000000 
+Total molecules in the system 38500
+WARNING: New thermo_style command, previous thermo_modify settings will be lost (../output.cpp:708)
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 20000, page size: 500000
+  master list distance cutoff = 17
+  ghost atom cutoff = 17
+  binsize = 8.5, bins = 14 14 14
+  4 neighbor lists, perpetual/occasional/extra = 4 0 0
+  (1) pair lj/cut, perpetual, skip from (4)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (2) pair table, perpetual, skip from (4)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) fix ucg_gfrd, perpetual
+      attributes: full, newton on
+      pair build: full/bin
+      stencil: full/bin/3d
+      bin: standard
+  (4) neighbor class addition, perpetual, half/full from (3)
+      attributes: half, newton on
+      pair build: halffull/newton
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 1
+U m 776 s 0 -> 1 s s 0 dU 1.087045 beta 1.623450
+U m 1025 s 0 -> 1 s s 0 dU 1.932997 beta 1.623450
+U m 2338 s 0 -> 1 s s 0 dU 0.660591 beta 1.623450
+U m 3030 s 0 -> 1 s s 0 dU 0.942970 beta 1.623450
+U m 3051 s 0 -> 1 s s 0 dU 0.998647 beta 1.623450
+U m 3081 s 0 -> 1 f s 0 dU 1.730477 beta 1.623450
+U m 3135 s 0 -> 1 f s 0 dU 1.345538 beta 1.623450
+U m 3175 s 0 -> 1 s s 0 dU 0.168005 beta 1.623450
+U m 3860 s 0 -> 1 s s 0 dU 0.908705 beta 1.623450
+U m 6668 s 0 -> 1 f s 0 dU 1.988416 beta 1.623450
+U m 7164 s 0 -> 1 f s 0 dU 2.171831 beta 1.623450
+U m 8027 s 0 -> 1 s s 0 dU 0.565412 beta 1.623450
+U m 9174 s 0 -> 1 s s 0 dU 1.138451 beta 1.623450
+U m 9388 s 0 -> 1 s s 0 dU 0.646754 beta 1.623450
+U m 9512 s 0 -> 1 f s 0 dU 1.218931 beta 1.623450
+U m 10224 s 0 -> 1 s s 0 dU 0.399557 beta 1.623450
+U m 10498 s 0 -> 1 s s 0 dU 1.597646 beta 1.623450
+U m 11477 s 0 -> 1 s s 0 dU 1.054357 beta 1.623450
+U m 13501 s 0 -> 1 s s 0 dU 0.791330 beta 1.623450
+U m 15644 s 0 -> 1 s s 0 dU 1.360248 beta 1.623450
+U m 16818 s 0 -> 1 s s 0 dU 0.799296 beta 1.623450
+U m 18524 s 0 -> 1 f s 0 dU 3.195853 beta 1.623450
+U m 19670 s 0 -> 1 f s 0 dU 2.687540 beta 1.623450
+U m 19763 s 0 -> 1 s s 0 dU -1.185352 beta 1.623450
+U m 20627 s 0 -> 1 s s 0 dU 0.962735 beta 1.623450
+U m 22282 s 0 -> 1 s s 0 dU 1.662109 beta 1.623450
+U m 25233 s 0 -> 1 s s 0 dU 0.831087 beta 1.623450
+U m 26474 s 0 -> 1 s s 0 dU 1.375446 beta 1.623450
+U m 26811 s 0 -> 1 s s 0 dU 0.019388 beta 1.623450
+U m 28180 s 0 -> 1 s s 0 dU 1.397888 beta 1.623450
+U m 28290 s 0 -> 1 s s 0 dU -0.146504 beta 1.623450
+U m 28402 s 0 -> 1 f s 0 dU 4.480259 beta 1.623450
+U m 28514 s 0 -> 1 s s 0 dU 0.684458 beta 1.623450
+U m 29171 s 0 -> 1 s s 0 dU 2.834057 beta 1.623450
+U m 29381 s 0 -> 1 s s 0 dU 0.707329 beta 1.623450
+U m 30397 s 1 -> 0 f s 0 dU -1.045514 beta 1.623450
+U m 30808 s 1 -> 0 s s 0 dU -0.547717 beta 1.623450
+U m 30892 s 1 -> 0 s s 0 dU 0.593499 beta 1.623450
+U m 32193 s 1 -> 0 s s 0 dU -1.487683 beta 1.623450
+U m 34585 s 1 -> 0 f s 0 dU -0.344989 beta 1.623450
+U m 36180 s 1 -> 0 f s 0 dU 1.913800 beta 1.623450
+U m 36186 s 1 -> 0 f s 0 dU 1.421252 beta 1.623450
+U m 36820 s 1 -> 0 f s 0 dU 2.376774 beta 1.623450
+U m 37167 s 1 -> 0 f s 0 dU 1.747016 beta 1.623450
+U m 37449 s 1 -> 0 f s 0 dU 0.770428 beta 1.623450
+Per MPI rank memory allocation (min/avg/max) = 141.9 | 151.4 | 168.7 Mbytes
+Step Temp KinEng PotEng TotEng 
+       0    309.21839    70049.896   -289359.45   -219309.56 
+U m 671 s 0 -> 1 s s 1 dU 0.551010 beta 1.623450
+U m 781 s 0 -> 1 f s 1 dU 2.598167 beta 1.623450
+U m 1418 s 0 -> 1 s s 1 dU -1.055815 beta 1.623450
+U m 1582 s 0 -> 1 f s 1 dU 2.561919 beta 1.623450
+U m 3013 s 0 -> 1 s s 1 dU 0.507550 beta 1.623450
+U m 4373 s 0 -> 1 f s 1 dU 3.777941 beta 1.623450
+U m 4442 s 0 -> 1 s s 1 dU 0.167651 beta 1.623450
+U m 5004 s 0 -> 1 f s 1 dU 1.797106 beta 1.623450
+U m 6038 s 0 -> 1 s s 1 dU 0.027736 beta 1.623450
+U m 7444 s 0 -> 1 s s 1 dU 0.262909 beta 1.623450
+U m 9274 s 0 -> 1 f s 1 dU 1.730826 beta 1.623450
+U m 9510 s 0 -> 1 s s 1 dU 1.004785 beta 1.623450
+U m 11788 s 0 -> 1 s s 1 dU 1.700225 beta 1.623450
+U m 12858 s 0 -> 1 s s 1 dU 0.377924 beta 1.623450
+U m 15327 s 0 -> 1 s s 1 dU 1.556715 beta 1.623450
+U m 17197 s 0 -> 1 f s 1 dU 2.352482 beta 1.623450
+U m 18003 s 0 -> 1 s s 1 dU 0.590012 beta 1.623450
+U m 21258 s 0 -> 1 f s 1 dU 3.937082 beta 1.623450
+U m 22827 s 0 -> 1 s s 1 dU 0.797594 beta 1.623450
+U m 23542 s 0 -> 1 f s 1 dU 1.476849 beta 1.623450
+U m 24359 s 0 -> 1 f s 1 dU 3.238736 beta 1.623450
+U m 24796 s 0 -> 1 f s 1 dU 3.614190 beta 1.623450
+U m 26341 s 0 -> 1 f s 1 dU 1.844764 beta 1.623450
+U m 26768 s 0 -> 1 f s 1 dU 1.853916 beta 1.623450
+U m 26885 s 0 -> 1 s s 1 dU -0.278174 beta 1.623450
+U m 27524 s 0 -> 1 f s 1 dU 1.988386 beta 1.623450
+U m 27664 s 0 -> 1 f s 1 dU 3.030655 beta 1.623450
+U m 30496 s 1 -> 0 f s 1 dU 0.599206 beta 1.623450
+U m 31507 s 1 -> 0 f s 1 dU 1.871694 beta 1.623450
+U m 32393 s 1 -> 0 f s 1 dU 1.951681 beta 1.623450
+U m 32654 s 1 -> 0 f s 1 dU 1.300990 beta 1.623450
+U m 34631 s 1 -> 0 f s 1 dU 1.646309 beta 1.623450
+U m 36332 s 1 -> 0 f s 1 dU 0.742953 beta 1.623450
+U m 36741 s 1 -> 0 f s 1 dU 3.304237 beta 1.623450
+       1    308.81381    69958.242   -289307.51   -219349.26 
+U m 111 s 0 -> 1 s s 2 dU 1.169117 beta 1.623450
+U m 980 s 0 -> 1 f s 2 dU 2.055738 beta 1.623450
+U m 2845 s 0 -> 1 s s 2 dU 0.532859 beta 1.623450
+U m 5229 s 0 -> 1 s s 2 dU -0.572687 beta 1.623450
+U m 6298 s 0 -> 1 s s 2 dU 1.738617 beta 1.623450
+U m 10929 s 0 -> 1 f s 2 dU 2.257663 beta 1.623450
+U m 10936 s 0 -> 1 s s 2 dU 0.120481 beta 1.623450
+U m 11273 s 0 -> 1 s s 2 dU -0.680727 beta 1.623450
+U m 11476 s 0 -> 1 s s 2 dU -0.245852 beta 1.623450
+U m 11481 s 0 -> 1 f s 2 dU 1.746740 beta 1.623450
+U m 15396 s 0 -> 1 s s 2 dU 0.530051 beta 1.623450
+U m 15634 s 0 -> 1 f s 2 dU 1.155410 beta 1.623450
+U m 15635 s 0 -> 1 s s 2 dU 0.115411 beta 1.623450
+U m 17583 s 0 -> 1 s s 2 dU 0.990305 beta 1.623450
+U m 17722 s 0 -> 1 s s 2 dU -0.482295 beta 1.623450
+U m 20266 s 0 -> 1 s s 2 dU 2.120318 beta 1.623450
+U m 21605 s 0 -> 1 s s 2 dU 1.251390 beta 1.623450
+U m 22043 s 0 -> 1 s s 2 dU 1.854510 beta 1.623450
+U m 23904 s 0 -> 1 s s 2 dU -0.480339 beta 1.623450
+U m 24746 s 0 -> 1 s s 2 dU 0.823422 beta 1.623450
+U m 26537 s 0 -> 1 s s 2 dU -0.571160 beta 1.623450
+U m 26649 s 0 -> 1 s s 2 dU 1.058437 beta 1.623450
+U m 26857 s 0 -> 1 s s 2 dU 2.217961 beta 1.623450
+U m 26922 s 0 -> 1 s s 2 dU 1.314063 beta 1.623450
+U m 26978 s 0 -> 1 f s 2 dU 2.043145 beta 1.623450
+U m 27084 s 0 -> 1 f s 2 dU 1.511239 beta 1.623450
+U m 27240 s 0 -> 1 s s 2 dU -1.534860 beta 1.623450
+U m 28196 s 0 -> 1 s s 2 dU 0.694301 beta 1.623450
+U m 28964 s 0 -> 1 s s 2 dU -1.074367 beta 1.623450
+U m 29516 s 0 -> 1 s s 2 dU -0.646235 beta 1.623450
+U m 31911 s 1 -> 0 f s 2 dU 0.301988 beta 1.623450
+U m 33141 s 1 -> 0 f s 2 dU 0.849296 beta 1.623450
+U m 33896 s 1 -> 0 f s 2 dU 0.438764 beta 1.623450
+U m 34320 s 1 -> 0 f s 2 dU 0.360023 beta 1.623450
+U m 35442 s 1 -> 0 s s 2 dU -0.176974 beta 1.623450
+U m 36177 s 1 -> 0 f s 2 dU 1.497441 beta 1.623450
+U m 37460 s 1 -> 0 f s 2 dU 1.353388 beta 1.623450
+       2    308.77031    69948.389   -289278.06   -219329.67 
+U m 2001 s 0 -> 1 f s 3 dU 1.920507 beta 1.623450
+U m 3695 s 0 -> 1 f s 3 dU 1.935681 beta 1.623450
+U m 6528 s 0 -> 1 s s 3 dU 0.068665 beta 1.623450
+U m 7091 s 0 -> 1 s s 3 dU 0.645750 beta 1.623450
+U m 7106 s 0 -> 1 s s 3 dU 1.224505 beta 1.623450
+U m 7908 s 0 -> 1 f s 3 dU 2.234919 beta 1.623450
+U m 7909 s 0 -> 1 s s 3 dU 0.904523 beta 1.623450
+U m 7982 s 0 -> 1 s s 3 dU 0.381554 beta 1.623450
+U m 8178 s 0 -> 1 s s 3 dU 0.951894 beta 1.623450
+U m 8313 s 0 -> 1 s s 3 dU 1.180787 beta 1.623450
+U m 8615 s 0 -> 1 f s 3 dU 2.410490 beta 1.623450
+U m 8934 s 0 -> 1 f s 3 dU 2.576300 beta 1.623450
+U m 9256 s 0 -> 1 s s 3 dU 0.878859 beta 1.623450
+U m 9575 s 0 -> 1 f s 3 dU 1.828642 beta 1.623450
+U m 11249 s 0 -> 1 f s 3 dU 1.387002 beta 1.623450
+U m 12260 s 0 -> 1 s s 3 dU 1.134816 beta 1.623450
+U m 13104 s 0 -> 1 s s 3 dU -0.120682 beta 1.623450
+U m 13311 s 0 -> 1 f s 3 dU 2.162188 beta 1.623450
+U m 13485 s 0 -> 1 s s 3 dU 0.280203 beta 1.623450
+U m 14505 s 0 -> 1 s s 3 dU 1.327976 beta 1.623450
+U m 15112 s 0 -> 1 f s 3 dU 3.237048 beta 1.623450
+U m 15986 s 0 -> 1 s s 3 dU 0.655588 beta 1.623450
+U m 19976 s 0 -> 1 s s 3 dU 0.808991 beta 1.623450
+U m 20042 s 0 -> 1 s s 3 dU -0.067372 beta 1.623450
+U m 20954 s 0 -> 1 s s 3 dU -1.241246 beta 1.623450
+U m 21941 s 0 -> 1 f s 3 dU 2.147394 beta 1.623450
+U m 23425 s 0 -> 1 s s 3 dU 0.768080 beta 1.623450
+U m 24118 s 0 -> 1 s s 3 dU 0.123561 beta 1.623450
+U m 25245 s 0 -> 1 f s 3 dU 1.946775 beta 1.623450
+U m 25957 s 0 -> 1 f s 3 dU 1.846128 beta 1.623450
+U m 26324 s 0 -> 1 s s 3 dU 1.165059 beta 1.623450
+U m 26344 s 0 -> 1 s s 3 dU 0.970679 beta 1.623450
+U m 28402 s 0 -> 1 f s 3 dU 4.542591 beta 1.623450
+U m 34021 s 1 -> 0 s s 3 dU 0.318859 beta 1.623450
+U m 34288 s 1 -> 0 f s 3 dU 0.658076 beta 1.623450
+U m 34576 s 1 -> 0 s s 3 dU -1.095417 beta 1.623450
+U m 35202 s 1 -> 0 f s 3 dU 0.703716 beta 1.623450
+       3    308.75586    69945.115   -289253.23   -219308.11 
+U m 60 s 0 -> 1 s s 4 dU -0.062903 beta 1.623450
+U m 3754 s 0 -> 1 f s 4 dU 1.349454 beta 1.623450
+U m 4137 s 0 -> 1 f s 4 dU 2.051167 beta 1.623450
+U m 4569 s 0 -> 1 s s 4 dU 1.993801 beta 1.623450
+U m 8985 s 0 -> 1 s s 4 dU 0.542458 beta 1.623450
+U m 9321 s 0 -> 1 f s 4 dU 3.355269 beta 1.623450
+U m 10396 s 0 -> 1 f s 4 dU 1.390416 beta 1.623450
+U m 10541 s 0 -> 1 s s 4 dU 1.323826 beta 1.623450
+U m 12826 s 0 -> 1 s s 4 dU 2.064187 beta 1.623450
+U m 13038 s 0 -> 1 s s 4 dU 0.767020 beta 1.623450
+U m 13291 s 0 -> 1 f s 4 dU 2.917145 beta 1.623450
+U m 14762 s 0 -> 1 s s 4 dU 0.593475 beta 1.623450
+U m 15603 s 0 -> 1 f s 4 dU 3.743899 beta 1.623450
+U m 15946 s 0 -> 1 s s 4 dU 1.052988 beta 1.623450
+U m 17016 s 0 -> 1 s s 4 dU 0.750824 beta 1.623450
+U m 17239 s 0 -> 1 s s 4 dU 0.411285 beta 1.623450
+U m 17734 s 0 -> 1 f s 4 dU 3.399182 beta 1.623450
+U m 19625 s 0 -> 1 f s 4 dU 2.173719 beta 1.623450
+U m 19880 s 0 -> 1 f s 4 dU 1.490448 beta 1.623450
+U m 20279 s 0 -> 1 f s 4 dU 1.590068 beta 1.623450
+U m 22004 s 0 -> 1 s s 4 dU -0.686024 beta 1.623450
+U m 22498 s 0 -> 1 f s 4 dU 3.174927 beta 1.623450
+U m 25488 s 0 -> 1 s s 4 dU 1.401106 beta 1.623450
+U m 25621 s 0 -> 1 f s 4 dU 1.960233 beta 1.623450
+U m 26789 s 0 -> 1 f s 4 dU 1.918145 beta 1.623450
+U m 28086 s 0 -> 1 f s 4 dU 1.698228 beta 1.623450
+U m 30395 s 1 -> 0 s s 4 dU -0.940971 beta 1.623450
+U m 31451 s 1 -> 0 f s 4 dU 0.942316 beta 1.623450
+U m 35672 s 1 -> 0 f s 4 dU 0.827690 beta 1.623450
+U m 37431 s 1 -> 0 f s 4 dU 0.975635 beta 1.623450
+       4    308.67305    69926.354   -289235.38   -219309.02 
+U m 2704 s 0 -> 1 s s 5 dU -0.620167 beta 1.623450
+U m 4973 s 0 -> 1 s s 5 dU 0.215386 beta 1.623450
+U m 5927 s 0 -> 1 f s 5 dU 3.458124 beta 1.623450
+U m 6086 s 0 -> 1 s s 5 dU -0.218688 beta 1.623450
+U m 7055 s 0 -> 1 s s 5 dU 1.567486 beta 1.623450
+U m 9212 s 0 -> 1 f s 5 dU 1.311788 beta 1.623450
+U m 10046 s 0 -> 1 s s 5 dU 0.263757 beta 1.623450
+U m 10533 s 0 -> 1 s s 5 dU 0.893831 beta 1.623450
+U m 10589 s 0 -> 1 s s 5 dU 1.697817 beta 1.623450
+U m 11993 s 0 -> 1 s s 5 dU 1.537296 beta 1.623450
+U m 12864 s 0 -> 1 f s 5 dU 1.977508 beta 1.623450
+U m 13820 s 0 -> 1 s s 5 dU 0.218109 beta 1.623450
+U m 16473 s 0 -> 1 s s 5 dU 0.731875 beta 1.623450
+U m 16832 s 0 -> 1 f s 5 dU 1.563983 beta 1.623450
+U m 18145 s 0 -> 1 f s 5 dU 2.557370 beta 1.623450
+U m 19363 s 0 -> 1 s s 5 dU 0.249118 beta 1.623450
+U m 20418 s 0 -> 1 f s 5 dU 3.149242 beta 1.623450
+U m 20636 s 0 -> 1 f s 5 dU 1.737372 beta 1.623450
+U m 21120 s 0 -> 1 s s 5 dU 0.965872 beta 1.623450
+U m 21315 s 0 -> 1 f s 5 dU 3.849455 beta 1.623450
+U m 21443 s 0 -> 1 f s 5 dU 1.186527 beta 1.623450
+U m 23698 s 0 -> 1 s s 5 dU -0.031190 beta 1.623450
+U m 24421 s 0 -> 1 s s 5 dU 1.133684 beta 1.623450
+U m 24791 s 0 -> 1 s s 5 dU 0.370068 beta 1.623450
+U m 25445 s 0 -> 1 s s 5 dU 0.187807 beta 1.623450
+U m 27934 s 0 -> 1 f s 5 dU 2.496398 beta 1.623450
+U m 28276 s 0 -> 1 s s 5 dU -0.079415 beta 1.623450
+U m 29129 s 0 -> 1 f s 5 dU 2.690498 beta 1.623450
+U m 30163 s 1 -> 0 f s 5 dU 1.109477 beta 1.623450
+U m 30494 s 1 -> 0 s s 5 dU -1.131536 beta 1.623450
+U m 30634 s 1 -> 0 s s 5 dU -0.430488 beta 1.623450
+U m 31109 s 1 -> 0 f s 5 dU 1.188309 beta 1.623450
+U m 32446 s 1 -> 0 f s 5 dU 1.204993 beta 1.623450
+U m 34158 s 1 -> 0 f s 5 dU 2.088584 beta 1.623450
+U m 34726 s 1 -> 0 s s 5 dU 0.275725 beta 1.623450
+U m 36238 s 1 -> 0 s s 5 dU 0.176781 beta 1.623450
+       5    308.62528    69915.534   -289229.79   -219314.25 
+U m 203 s 0 -> 1 s s 6 dU -0.474512 beta 1.623450
+U m 1477 s 0 -> 1 f s 6 dU 1.745649 beta 1.623450
+U m 1667 s 0 -> 1 f s 6 dU 3.099508 beta 1.623450
+U m 2155 s 0 -> 1 s s 6 dU 0.420799 beta 1.623450
+U m 3978 s 0 -> 1 f s 6 dU 2.084459 beta 1.623450
+U m 6532 s 0 -> 1 s s 6 dU 0.749633 beta 1.623450
+U m 7099 s 0 -> 1 f s 6 dU 4.893411 beta 1.623450
+U m 7617 s 0 -> 1 f s 6 dU 2.206897 beta 1.623450
+U m 7740 s 0 -> 1 s s 6 dU 1.294454 beta 1.623450
+U m 9619 s 0 -> 1 s s 6 dU -0.238340 beta 1.623450
+U m 9755 s 0 -> 1 f s 6 dU 1.932644 beta 1.623450
+U m 10836 s 0 -> 1 f s 6 dU 1.344986 beta 1.623450
+U m 12327 s 0 -> 1 s s 6 dU -0.190885 beta 1.623450
+U m 13926 s 0 -> 1 f s 6 dU 1.749080 beta 1.623450
+U m 14091 s 0 -> 1 f s 6 dU 1.620161 beta 1.623450
+U m 14990 s 0 -> 1 f s 6 dU 4.382170 beta 1.623450
+U m 15321 s 0 -> 1 f s 6 dU 2.201425 beta 1.623450
+U m 17733 s 0 -> 1 s s 6 dU 1.207541 beta 1.623450
+U m 17790 s 0 -> 1 s s 6 dU 0.389058 beta 1.623450
+U m 21922 s 0 -> 1 f s 6 dU 2.109202 beta 1.623450
+U m 22021 s 0 -> 1 s s 6 dU 1.867531 beta 1.623450
+U m 23188 s 0 -> 1 s s 6 dU -0.097689 beta 1.623450
+U m 27716 s 0 -> 1 s s 6 dU 0.706201 beta 1.623450
+U m 28351 s 0 -> 1 f s 6 dU 2.566026 beta 1.623450
+U m 28525 s 0 -> 1 f s 6 dU 3.264417 beta 1.623450
+U m 29073 s 0 -> 1 s s 6 dU 1.182101 beta 1.623450
+U m 31397 s 1 -> 0 s s 6 dU -1.229726 beta 1.623450
+U m 31829 s 1 -> 0 f s 6 dU 0.836995 beta 1.623450
+U m 31943 s 1 -> 0 f s 6 dU 1.225890 beta 1.623450
+U m 32324 s 1 -> 0 f s 6 dU 0.257794 beta 1.623450
+U m 32422 s 1 -> 0 s s 6 dU -0.191044 beta 1.623450
+U m 33958 s 1 -> 0 f s 6 dU 1.526590 beta 1.623450
+       6    308.69725    69931.837   -289236.45   -219304.62 
+U m 190 s 0 -> 1 s s 7 dU 1.775004 beta 1.623450
+U m 477 s 0 -> 1 f s 7 dU 2.110205 beta 1.623450
+U m 491 s 0 -> 1 f s 7 dU 1.787881 beta 1.623450
+U m 754 s 0 -> 1 s s 7 dU 0.346059 beta 1.623450
+U m 2884 s 0 -> 1 s s 7 dU 0.922435 beta 1.623450
+U m 3627 s 0 -> 1 f s 7 dU 2.609843 beta 1.623450
+U m 4312 s 0 -> 1 f s 7 dU 1.873732 beta 1.623450
+U m 5703 s 0 -> 1 s s 7 dU -0.016146 beta 1.623450
+U m 6551 s 0 -> 1 f s 7 dU 2.773251 beta 1.623450
+U m 8124 s 0 -> 1 s s 7 dU 1.248671 beta 1.623450
+U m 8344 s 0 -> 1 s s 7 dU -0.194915 beta 1.623450
+U m 9247 s 0 -> 1 s s 7 dU -0.484471 beta 1.623450
+U m 9831 s 0 -> 1 s s 7 dU -0.728770 beta 1.623450
+U m 10247 s 0 -> 1 f s 7 dU 3.166283 beta 1.623450
+U m 11234 s 0 -> 1 f s 7 dU 2.033902 beta 1.623450
+U m 11729 s 0 -> 1 f s 7 dU 1.637163 beta 1.623450
+U m 13007 s 0 -> 1 s s 7 dU -1.984910 beta 1.623450
+U m 14336 s 0 -> 1 f s 7 dU 2.022260 beta 1.623450
+U m 15363 s 0 -> 1 s s 7 dU 1.094802 beta 1.623450
+U m 15534 s 0 -> 1 s s 7 dU -0.658884 beta 1.623450
+U m 16816 s 0 -> 1 s s 7 dU 1.446266 beta 1.623450
+U m 17065 s 0 -> 1 s s 7 dU 1.103447 beta 1.623450
+U m 19538 s 0 -> 1 s s 7 dU 1.632451 beta 1.623450
+U m 21775 s 0 -> 1 s s 7 dU 0.249667 beta 1.623450
+U m 22229 s 0 -> 1 s s 7 dU 0.919252 beta 1.623450
+U m 22605 s 0 -> 1 s s 7 dU 0.463681 beta 1.623450
+U m 24024 s 0 -> 1 f s 7 dU 1.591137 beta 1.623450
+U m 24072 s 0 -> 1 s s 7 dU 1.125963 beta 1.623450
+U m 24082 s 0 -> 1 f s 7 dU 3.757580 beta 1.623450
+U m 24179 s 0 -> 1 s s 7 dU 0.078175 beta 1.623450
+U m 25997 s 0 -> 1 f s 7 dU 2.726583 beta 1.623450
+U m 30478 s 1 -> 0 f s 7 dU -0.427925 beta 1.623450
+U m 30571 s 1 -> 0 f s 7 dU 1.765922 beta 1.623450
+U m 31326 s 1 -> 0 f s 7 dU 0.442734 beta 1.623450
+U m 31943 s 1 -> 0 f s 7 dU 1.395065 beta 1.623450
+U m 32676 s 1 -> 0 f s 7 dU 1.754384 beta 1.623450
+U m 33901 s 1 -> 0 f s 7 dU -0.364734 beta 1.623450
+U m 34575 s 1 -> 0 s s 7 dU -1.907560 beta 1.623450
+U m 34643 s 1 -> 0 s s 7 dU -0.573711 beta 1.623450
+       7     308.8063    69956.541   -289257.83   -219301.29 
+U m 99 s 0 -> 1 f s 8 dU 3.476673 beta 1.623450
+U m 1913 s 0 -> 1 s s 8 dU -0.110381 beta 1.623450
+U m 2423 s 0 -> 1 s s 8 dU 1.806345 beta 1.623450
+U m 2746 s 0 -> 1 s s 8 dU 1.216719 beta 1.623450
+U m 3642 s 0 -> 1 s s 8 dU 0.832017 beta 1.623450
+U m 3764 s 0 -> 1 s s 8 dU 0.262551 beta 1.623450
+U m 4161 s 0 -> 1 s s 8 dU -2.210799 beta 1.623450
+U m 4336 s 0 -> 1 s s 8 dU 0.189990 beta 1.623450
+U m 5244 s 0 -> 1 s s 8 dU 1.905706 beta 1.623450
+U m 6133 s 0 -> 1 f s 8 dU 2.359764 beta 1.623450
+U m 6626 s 0 -> 1 s s 8 dU 0.525938 beta 1.623450
+U m 7210 s 0 -> 1 s s 8 dU 1.406950 beta 1.623450
+U m 7834 s 0 -> 1 f s 8 dU 1.889949 beta 1.623450
+U m 7883 s 0 -> 1 s s 8 dU 1.390126 beta 1.623450
+U m 8116 s 0 -> 1 f s 8 dU 1.384202 beta 1.623450
+U m 9601 s 0 -> 1 s s 8 dU -0.029022 beta 1.623450
+U m 10431 s 0 -> 1 f s 8 dU 2.553296 beta 1.623450
+U m 12449 s 0 -> 1 s s 8 dU 0.546434 beta 1.623450
+U m 12670 s 0 -> 1 s s 8 dU 1.157699 beta 1.623450
+U m 12778 s 0 -> 1 s s 8 dU -0.054226 beta 1.623450
+U m 13186 s 0 -> 1 f s 8 dU 3.331694 beta 1.623450
+U m 13668 s 0 -> 1 s s 8 dU 0.182637 beta 1.623450
+U m 13726 s 0 -> 1 s s 8 dU 0.457372 beta 1.623450
+U m 13946 s 0 -> 1 f s 8 dU 2.011780 beta 1.623450
+U m 14552 s 0 -> 1 s s 8 dU -0.923544 beta 1.623450
+U m 14776 s 0 -> 1 s s 8 dU 0.591370 beta 1.623450
+U m 16481 s 0 -> 1 s s 8 dU 2.096538 beta 1.623450
+U m 18607 s 0 -> 1 f s 8 dU 2.622854 beta 1.623450
+U m 19532 s 0 -> 1 s s 8 dU 1.199590 beta 1.623450
+U m 19868 s 0 -> 1 f s 8 dU 2.923157 beta 1.623450
+U m 22377 s 0 -> 1 f s 8 dU 2.539715 beta 1.623450
+U m 23478 s 0 -> 1 s s 8 dU -0.053939 beta 1.623450
+U m 24011 s 0 -> 1 f s 8 dU 1.804153 beta 1.623450
+U m 24178 s 0 -> 1 s s 8 dU 0.008034 beta 1.623450
+U m 24623 s 0 -> 1 f s 8 dU 2.181604 beta 1.623450
+U m 25641 s 0 -> 1 f s 8 dU 2.766423 beta 1.623450
+U m 26390 s 0 -> 1 s s 8 dU -1.509405 beta 1.623450
+U m 26490 s 0 -> 1 s s 8 dU 0.453514 beta 1.623450
+U m 27380 s 0 -> 1 s s 8 dU 0.131597 beta 1.623450
+U m 28426 s 0 -> 1 s s 8 dU 0.883347 beta 1.623450
+U m 32056 s 1 -> 0 f s 8 dU 0.935482 beta 1.623450
+U m 32312 s 1 -> 0 s s 8 dU -0.518611 beta 1.623450
+U m 33101 s 1 -> 0 f s 8 dU 2.079468 beta 1.623450
+U m 35528 s 1 -> 0 f s 8 dU 0.130680 beta 1.623450
+U m 35963 s 1 -> 0 f s 8 dU 0.905055 beta 1.623450
+U m 36021 s 1 -> 0 f s 8 dU 3.944463 beta 1.623450
+U m 37217 s 1 -> 0 f s 8 dU 3.067767 beta 1.623450
+U m 37355 s 1 -> 0 f s 8 dU -0.437332 beta 1.623450
+       8    308.97817    69995.478    -289290.3   -219294.82 
+U m 741 s 0 -> 1 f s 9 dU 2.014926 beta 1.623450
+U m 1381 s 0 -> 1 f s 9 dU 1.981253 beta 1.623450
+U m 1516 s 0 -> 1 f s 9 dU 1.707176 beta 1.623450
+U m 1882 s 0 -> 1 s s 9 dU 0.028404 beta 1.623450
+U m 2653 s 0 -> 1 f s 9 dU 1.421781 beta 1.623450
+U m 3478 s 0 -> 1 s s 9 dU -1.046188 beta 1.623450
+U m 3853 s 0 -> 1 f s 9 dU 1.125939 beta 1.623450
+U m 4632 s 0 -> 1 s s 9 dU 0.513041 beta 1.623450
+U m 6848 s 0 -> 1 s s 9 dU 0.048217 beta 1.623450
+U m 9211 s 0 -> 1 f s 9 dU 1.091310 beta 1.623450
+U m 9846 s 0 -> 1 s s 9 dU 0.632531 beta 1.623450
+U m 10139 s 0 -> 1 s s 9 dU 0.028164 beta 1.623450
+U m 11228 s 0 -> 1 s s 9 dU -0.759503 beta 1.623450
+U m 12899 s 0 -> 1 s s 9 dU 0.259338 beta 1.623450
+U m 14082 s 0 -> 1 s s 9 dU 0.874735 beta 1.623450
+U m 14606 s 0 -> 1 s s 9 dU 0.037292 beta 1.623450
+U m 14757 s 0 -> 1 s s 9 dU 0.535050 beta 1.623450
+U m 16186 s 0 -> 1 s s 9 dU 0.306107 beta 1.623450
+U m 17157 s 0 -> 1 f s 9 dU 2.399566 beta 1.623450
+U m 18800 s 0 -> 1 s s 9 dU -0.089584 beta 1.623450
+U m 19796 s 0 -> 1 f s 9 dU 1.537329 beta 1.623450
+U m 20296 s 0 -> 1 f s 9 dU 1.568616 beta 1.623450
+U m 21878 s 0 -> 1 f s 9 dU 2.852066 beta 1.623450
+U m 23730 s 0 -> 1 s s 9 dU 1.002812 beta 1.623450
+U m 25074 s 0 -> 1 s s 9 dU 1.428514 beta 1.623450
+U m 27835 s 0 -> 1 s s 9 dU 0.958558 beta 1.623450
+U m 28673 s 0 -> 1 s s 9 dU 0.623018 beta 1.623450
+U m 28735 s 0 -> 1 f s 9 dU 1.890927 beta 1.623450
+U m 29641 s 0 -> 1 f s 9 dU 2.539379 beta 1.623450
+U m 31023 s 1 -> 0 f s 9 dU 0.392076 beta 1.623450
+U m 31174 s 1 -> 0 f s 9 dU 1.337952 beta 1.623450
+U m 33769 s 1 -> 0 f s 9 dU 0.323894 beta 1.623450
+U m 36079 s 1 -> 0 s s 9 dU -0.648836 beta 1.623450
+U m 36440 s 1 -> 0 f s 9 dU 0.510002 beta 1.623450
+U m 36873 s 1 -> 0 f s 9 dU 2.902493 beta 1.623450
+       9    309.21328    70048.737   -289326.45   -219277.71 
+U m 549 s 0 -> 1 s s 10 dU -0.404429 beta 1.623450
+U m 3131 s 0 -> 1 s s 10 dU 0.310649 beta 1.623450
+U m 3190 s 0 -> 1 s s 10 dU 0.141813 beta 1.623450
+U m 4057 s 0 -> 1 s s 10 dU 1.166240 beta 1.623450
+U m 6167 s 0 -> 1 s s 10 dU 1.053947 beta 1.623450
+U m 7023 s 0 -> 1 s s 10 dU 1.540331 beta 1.623450
+U m 7810 s 0 -> 1 s s 10 dU 0.305363 beta 1.623450
+U m 9242 s 0 -> 1 s s 10 dU 3.144237 beta 1.623450
+U m 9459 s 0 -> 1 f s 10 dU 1.852165 beta 1.623450
+U m 10390 s 0 -> 1 s s 10 dU 0.200112 beta 1.623450
+U m 10844 s 0 -> 1 s s 10 dU 0.894161 beta 1.623450
+U m 11591 s 0 -> 1 f s 10 dU 2.430968 beta 1.623450
+U m 12767 s 0 -> 1 f s 10 dU 1.293354 beta 1.623450
+U m 14393 s 0 -> 1 f s 10 dU 2.394227 beta 1.623450
+U m 16267 s 0 -> 1 s s 10 dU 0.521422 beta 1.623450
+U m 16956 s 0 -> 1 s s 10 dU 1.782455 beta 1.623450
+U m 16988 s 0 -> 1 s s 10 dU -0.571722 beta 1.623450
+U m 20800 s 0 -> 1 s s 10 dU 1.328922 beta 1.623450
+U m 21264 s 0 -> 1 s s 10 dU -1.104948 beta 1.623450
+U m 21773 s 0 -> 1 f s 10 dU 2.384623 beta 1.623450
+U m 22446 s 0 -> 1 f s 10 dU 3.001661 beta 1.623450
+U m 22887 s 0 -> 1 s s 10 dU 1.377603 beta 1.623450
+U m 25116 s 0 -> 1 s s 10 dU 0.944591 beta 1.623450
+U m 25131 s 0 -> 1 s s 10 dU 0.306906 beta 1.623450
+U m 25306 s 0 -> 1 f s 10 dU 2.433460 beta 1.623450
+U m 25499 s 0 -> 1 f s 10 dU 2.300080 beta 1.623450
+U m 28234 s 0 -> 1 s s 10 dU 1.164833 beta 1.623450
+U m 29265 s 0 -> 1 s s 10 dU 0.096848 beta 1.623450
+U m 29761 s 0 -> 1 s s 10 dU -0.388593 beta 1.623450
+U m 31032 s 1 -> 0 f s 10 dU 0.632322 beta 1.623450
+U m 31559 s 1 -> 0 f s 10 dU 1.072548 beta 1.623450
+U m 32711 s 1 -> 0 f s 10 dU 0.696010 beta 1.623450
+U m 33466 s 1 -> 0 f s 10 dU 1.443121 beta 1.623450
+U m 34016 s 1 -> 0 f s 10 dU 0.451261 beta 1.623450
+U m 35604 s 1 -> 0 f s 10 dU 0.348645 beta 1.623450
+U m 36333 s 1 -> 0 f s 10 dU 0.176528 beta 1.623450
+U m 38242 s 2 -> 3 f s 10 dU 0.090513 beta 1.623450
+      10    309.44231    70100.622   -289379.71   -219279.09 
+Loop time of 9.61405 on 4 procs for 10 steps with 76000 atoms
+
+Performance: 0.090 ns/day, 267.057 hours/ns, 1.040 timesteps/s
+98.2% CPU use with 4 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1.2686     | 1.4231     | 1.5025     |   7.9 | 14.80
+Bond    | 0.0026731  | 0.0031441  | 0.0035861  |   0.6 |  0.03
+Neigh   | 7.8716     | 7.8723     | 7.873      |   0.0 | 81.88
+Comm    | 0.17453    | 0.25471    | 0.41023    |  18.8 |  2.65
+Output  | 0.0011702  | 0.0026615  | 0.0035992  |   1.8 |  0.03
+Modify  | 0.052328   | 0.053233   | 0.054564   |   0.4 |  0.55
+Other   |            | 0.004873   |            |       |  0.05
+
+Nlocal:    19000 ave 21421 max 17236 min
+Histogram: 1 0 1 0 1 0 0 0 0 1
+Nghost:    44722.8 ave 46038 max 44035 min
+Histogram: 2 0 0 1 0 0 0 0 0 1
+Neighs:    7.52567e+06 ave 8.50471e+06 max 6.97723e+06 min
+Histogram: 2 0 0 1 0 0 0 0 0 1
+FullNghs:  1.50578e+07 ave 1.7471e+07 max 1.34853e+07 min
+Histogram: 1 0 1 1 0 0 0 0 0 1
+
+Total # of neighbors = 60231086
+Ave neighs/atom = 792.514
+Ave special neighs/atom = 0.986842
+Neighbor list builds = 10
+Dangerous builds = 0
+Total wall time: 0:00:11
