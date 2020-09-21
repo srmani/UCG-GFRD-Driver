@@ -96,6 +96,7 @@ int main(int argc, char **argv) {
   // Have the MM engine initialize a new MD simulation
   MDI_Send_Command("@INIT_MD", LAMMPS_comm);
   cout<<"initialize MD"<<endl;
+  
   for(int ii=0;ii<niterations;ii++)
   {
 
@@ -103,7 +104,13 @@ int main(int argc, char **argv) {
 
     MDI_Send_Command("<ENERGY", LAMMPS_comm);
     MDI_Recv(&energy, 1, MDI_DOUBLE, LAMMPS_comm);
-    
+
+    // MDI_Send_Command("<KE", LAMMPS_comm);
+    //MDI_Recv(&ke, 1, MDI_DOUBLE, LAMMPS_comm);
+   
+    //MDI_Send_Command("<PE", LAMMPS_comm);
+    //MDI_Recv(&pe, 1, MDI_DOUBLE, LAMMPS_comm);
+ 
     MDI_Send_Command("@COORDS", LAMMPS_comm);
 
     cout<<"iteration: "<<ii<<' '<<energy*e_conv<<endl;
