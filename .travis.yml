@@ -1,12 +1,12 @@
 language: c++
 
-jobs:	
+jobs:
   include:
-    - name: "UCG-GFRD-Driver Compilation and Job Test" 
+    - name: "UCG-GFRD-Driver Compilation and Job Test"
       os: linux
       dist: trusty
       env:
-        - CC=mpicc 
+        - CC=mpicc
         - CXX=mpic++
 
 branches:
