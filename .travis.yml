@@ -15,6 +15,6 @@ branches:
 
 install:
     - if test "$CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install -y libopenmpi-dev openmpi-bin ; fi
-    - cd scripts
-    - bash lammps.sh
+    - source scripts/lammps.sh
+
 
