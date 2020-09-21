@@ -82,6 +82,10 @@ int main(int argc, char **argv) {
   int natoms;
   double energy;
   double ke, pe;
+  double e_conv;
+  
+  MDI_Conversion_Factor("atomic_unit_of_energy","kilocalorie_per_mol",&e_conv);
+  //cout<<"energy conversion:"<<e_conv<<endl;
 
   // Receive the number of atoms from the LAMMPS engine
   MDI_Send_Command("<NATOMS", LAMMPS_comm);
@@ -102,7 +106,7 @@ int main(int argc, char **argv) {
     
     MDI_Send_Command("@COORDS", LAMMPS_comm);
 
-    cout<<"iteration: "<<ii<<' '<<energy<<endl;
+    cout<<"iteration: "<<ii<<' '<<energy*e_conv<<endl;
   }
   
   // Send the "EXIT" command to each of the engines
