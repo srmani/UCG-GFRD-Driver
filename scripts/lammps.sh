@@ -1,7 +1,6 @@
 #!/bin/bash
 #git clone -b mdi https://github.com/MolSSI-MDI/lammps.git
 git clone -b stable https://github.com/lammps/lammps.git
-ls -l
 cd lammps
 cd src
 #cp ../../src/fix_ucg_gfrd.cpp .
