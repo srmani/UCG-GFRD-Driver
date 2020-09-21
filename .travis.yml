@@ -4,7 +4,7 @@ jobs:
   include:
     - name: "UCG-GFRD-Driver Compilation and Job Test"
       os: linux
-      dist: trusty
+      dist: focal
       env:
         - CC=mpicc
         - CXX=mpic++
