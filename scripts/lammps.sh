@@ -5,7 +5,7 @@ cd lammps
 cd src
 cp ../../UCG-GFRD/src/fix_ucg_gfrd.cpp .
 cp ../../UCG-GFRD/src/fix_ucg_gfrd.h .
-make lib-mdi args="-m gcc"
+make lib-mdi args="-m mpi"
 make yes-user-mdi
 make yes-MOLECULE
 make yes-MC
