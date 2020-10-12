@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
   }
 
   // Perform the simulation
-  int niterations=10; //number of simulation steps
+  int niterations=1; //number of simulation steps
   int natoms;
   double energy;
   double ke, pe;
@@ -89,12 +89,13 @@ int main(int argc, char **argv) {
   char *cmd_name=new char[MDI_NAME_LENGTH];
   int n_commands;
   double *coords;
+  double *coords_pass;
   int atom_types;
   int *types_list;
   double *mass_list;
 
   MDI_Conversion_Factor("atomic_unit_of_energy","kilocalorie_per_mol",&e_conv);
-  MDI_Conversion_Factor("atomic_unit_of_length","angstrom",&d_conv);
+  MDI_Conversion_Factor("bohr","angstrom",&d_conv);
 
   MDI_Get_NNodes(LAMMPS_comm,&nnodes);
   cout<<"Number of nodes: "<<nnodes<<endl;
@@ -104,28 +105,24 @@ int main(int argc, char **argv) {
     cout<<ii<<' '<<node_name<<endl;
   }
 
-  /*MDI_Get_NCommands("@COORDS",LAMMPS_comm,&n_commands);
+  MDI_Get_NCommands("@COORDS",LAMMPS_comm,&n_commands);
   cout<<"Number of commands: "<<n_commands<<endl;
   for(int ii=0;ii<n_commands;ii++)
   {
     MDI_Get_Command("@COORDS",ii,LAMMPS_comm,cmd_name);
     cout<<ii<<' '<<cmd_name<<endl;
-  }*/
-    
-
-  MDI_Send_Command("<NCOMMANDS",LAMMPS_comm);
-  MDI_Recv(&n_commands,1,MDI_INT,LAMMPS_comm);
-  cout<<"Number of commands: "<<n_commands<<endl;
-
+  }
+  
   // Receive the number of atoms from the LAMMPS engine
   MDI_Send_Command("<NATOMS", LAMMPS_comm);
   MDI_Recv(&natoms, 1, MDI_INT, LAMMPS_comm);// Receive the number of atoms from the LAMMPS engine
   cout << "Number of atoms: " << natoms << endl;
   coords=new double [3*natoms];
+  coords_pass=new double [3*natoms];
   types_list=new int [natoms];
   mass_list=new double [natoms];
 
-  // Have the MM engine initialize a new MD simulation
+  //Have the MM engine initialize a new MD simulation
   MDI_Send_Command("@INIT_MD", LAMMPS_comm);
   cout<<"initialize MD"<<endl;
 
@@ -136,40 +133,61 @@ int main(int argc, char **argv) {
   MDI_Send_Command("<COORDS",LAMMPS_comm);
   MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
 
-  ofstream print("Coord.out");
+  ofstream print("Init_CoordFromLAMMPS.out");
   int ID=1;
   for(int ii=0;ii<3*natoms;ii=ii+3){
     print<<ID<<' '<<coords[ii]*d_conv<<' '<<coords[ii+1]*d_conv<<' '<<coords[ii+2]*d_conv<<endl;
     ID=ID+1;
   }
   print.close();
+
+  /*ID=1;
+  ofstream Print("NewCoord.out");
+  for(int jj=0;jj<3*natoms;jj=jj+3)
+    {
+      coords_pass[jj]=coords[jj]*d_conv+1.0;
+      coords_pass[jj+1]=coords[jj+1]*d_conv+1.0;
+      coords_pass[jj+2]=coords[jj+2]*d_conv+1.0;
+      Print<<ID<<' '<<coords_pass[jj]<<' '<<coords_pass[jj+1]<<' '<<coords_pass[jj+2]<<endl;
+      ID=ID+1;
+    }
+  Print.close();
+  MDI_Send_Command(">COORDS",LAMMPS_comm);
+  MDI_Send(coords_pass,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
+
+  MDI_Send_Command("<COORDS",LAMMPS_comm);
+  MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+  ofstream Print1("Perturb_CoordFromLAMMPS.out");
+  ID=1;
+  for(int ii=0;ii<3*natoms;ii=ii+3){
+    Print1<<ID<<' '<<coords[ii]<<' '<<coords[ii+1]<<' '<<coords[ii+2]<<endl;
+    ID=ID+1;
+  }
+  Print1.close();*/
   
-  MDI_Send_Command("<NTYPES",LAMMPS_comm);
-  MDI_Recv(&atom_types,1,MDI_INT,LAMMPS_comm);
-  cout<<"Atomtypes: "<<atom_types<<endl;
 
-  MDI_Send_Command("<TYPES",LAMMPS_comm);
-  MDI_Recv(types_list,natoms,MDI_INT,LAMMPS_comm);
-  ofstream write("Types.out");
-  for(int ii=0;ii<natoms;ii++)
-    write<<ii+1<<' '<<types_list[ii]<<endl;
-  write.close();
-
+  /*cout<<"Executing masses"<<endl;
   MDI_Send_Command("<MASSES",LAMMPS_comm);
   MDI_Recv(mass_list,natoms,MDI_DOUBLE,LAMMPS_comm);
   ofstream Write("Masses.out");
   for(int ii=0;ii<natoms;ii++)
     Write<<ii+1<<' '<<mass_list[ii]<<endl;
-  Write.close();
+    Write.close();*/
 
-  for(int ii=0;ii<niterations;ii++)
+  for(int ii=0;ii<=niterations;ii++)
   {
-
-    //MDI_Send_Command("@FORCES", LAMMPS_comm);
     MDI_Send_Command("@",LAMMPS_comm);
     MDI_Send_Command("<@",LAMMPS_comm);
     MDI_Recv(node_name, MDI_NAME_LENGTH, MDI_CHAR, LAMMPS_comm);
     cout<<"node name: "<<node_name<<endl;
+
+    /*MDI_Send_Command("<MASSES",LAMMPS_comm);
+    MDI_Recv(mass_list,natoms,MDI_DOUBLE,LAMMPS_comm);
+    ofstream Write("Masses.out");
+    for(int jj=0;jj<natoms;jj++)
+      Write<<jj+1<<' '<<mass_list[jj]<<endl;
+      Write.close();*/
 
     MDI_Send_Command("<ENERGY", LAMMPS_comm);
     MDI_Recv(&energy, 1, MDI_DOUBLE, LAMMPS_comm);
