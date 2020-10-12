@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
   }
 
   // Perform the simulation
-  int niterations=1; //number of simulation steps
+  int niterations=0; //number of simulation steps
   int natoms;
   double energy;
   double ke, pe;
@@ -133,47 +133,38 @@ int main(int argc, char **argv) {
   MDI_Send_Command("<COORDS",LAMMPS_comm);
   MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
 
-  ofstream print("Init_CoordFromLAMMPS.out");
+  ofstream IC("Init_CoordFromLAMMPS.out");
   int ID=1;
   for(int ii=0;ii<3*natoms;ii=ii+3){
-    print<<ID<<' '<<coords[ii]*d_conv<<' '<<coords[ii+1]*d_conv<<' '<<coords[ii+2]*d_conv<<endl;
+    IC<<ID<<' '<<coords[ii]*d_conv<<' '<<coords[ii+1]*d_conv<<' '<<coords[ii+2]*d_conv<<endl;
     ID=ID+1;
   }
-  print.close();
+  IC.close();
 
   /*ID=1;
-  ofstream Print("NewCoord.out");
+  ofstream NC("NewCoord.out");
   for(int jj=0;jj<3*natoms;jj=jj+3)
     {
-      coords_pass[jj]=coords[jj]*d_conv+1.0;
-      coords_pass[jj+1]=coords[jj+1]*d_conv+1.0;
-      coords_pass[jj+2]=coords[jj+2]*d_conv+1.0;
-      Print<<ID<<' '<<coords_pass[jj]<<' '<<coords_pass[jj+1]<<' '<<coords_pass[jj+2]<<endl;
+      coords_pass[jj]=(coords[jj]*d_conv+1.0)/d_conv;
+      coords_pass[jj+1]=(coords[jj+1]*d_conv+1.0)/d_conv;
+      coords_pass[jj+2]=(coords[jj+2]*d_conv+1.0)/d_conv;
+      NC<<ID<<' '<<coords_pass[jj]*d_conv<<' '<<coords_pass[jj+1]*d_conv<<' '<<coords_pass[jj+2]*d_conv<<endl;
       ID=ID+1;
-    }
-  Print.close();
-  MDI_Send_Command(">COORDS",LAMMPS_comm);
+  }
+  NC.close();*/
+
+  /*MDI_Send_Command(">COORDS",LAMMPS_comm);
   MDI_Send(coords_pass,3*natoms,MDI_DOUBLE,LAMMPS_comm);
-
-
   MDI_Send_Command("<COORDS",LAMMPS_comm);
   MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
-  ofstream Print1("Perturb_CoordFromLAMMPS.out");
+  ofstream PC("Perturb_CoordFromLAMMPS.out");
   ID=1;
   for(int ii=0;ii<3*natoms;ii=ii+3){
-    Print1<<ID<<' '<<coords[ii]<<' '<<coords[ii+1]<<' '<<coords[ii+2]<<endl;
+    PC<<ID<<' '<<coords[ii]<<' '<<coords[ii+1]<<' '<<coords[ii+2]<<endl;
     ID=ID+1;
   }
-  Print1.close();*/
-  
+  PC.close();*/
 
-  /*cout<<"Executing masses"<<endl;
-  MDI_Send_Command("<MASSES",LAMMPS_comm);
-  MDI_Recv(mass_list,natoms,MDI_DOUBLE,LAMMPS_comm);
-  ofstream Write("Masses.out");
-  for(int ii=0;ii<natoms;ii++)
-    Write<<ii+1<<' '<<mass_list[ii]<<endl;
-    Write.close();*/
 
   for(int ii=0;ii<=niterations;ii++)
   {
@@ -181,13 +172,6 @@ int main(int argc, char **argv) {
     MDI_Send_Command("<@",LAMMPS_comm);
     MDI_Recv(node_name, MDI_NAME_LENGTH, MDI_CHAR, LAMMPS_comm);
     cout<<"node name: "<<node_name<<endl;
-
-    /*MDI_Send_Command("<MASSES",LAMMPS_comm);
-    MDI_Recv(mass_list,natoms,MDI_DOUBLE,LAMMPS_comm);
-    ofstream Write("Masses.out");
-    for(int jj=0;jj<natoms;jj++)
-      Write<<jj+1<<' '<<mass_list[jj]<<endl;
-      Write.close();*/
 
     MDI_Send_Command("<ENERGY", LAMMPS_comm);
     MDI_Recv(&energy, 1, MDI_DOUBLE, LAMMPS_comm);
