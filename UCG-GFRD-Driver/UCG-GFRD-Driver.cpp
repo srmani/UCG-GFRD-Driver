@@ -90,38 +90,21 @@ int main(int argc, char **argv) {
   int n_commands;
   double *coords;
   double *coords_pass;
-  int atom_types;
-  int *types_list;
   double *mass_list;
 
   MDI_Conversion_Factor("atomic_unit_of_energy","kilocalorie_per_mol",&e_conv);
   MDI_Conversion_Factor("bohr","angstrom",&d_conv);
+  cout<<"e_conv:"<<e_conv<<' '<<"d_conv:"<<d_conv<<endl;
 
-  MDI_Get_NNodes(LAMMPS_comm,&nnodes);
-  cout<<"Number of nodes: "<<nnodes<<endl;
-  for (int ii=0;ii<nnodes;ii++)
-  {
-    MDI_Get_Node(ii,LAMMPS_comm,node_name);
-    cout<<ii<<' '<<node_name<<endl;
-  }
-
-  MDI_Get_NCommands("@COORDS",LAMMPS_comm,&n_commands);
-  cout<<"Number of commands: "<<n_commands<<endl;
-  for(int ii=0;ii<n_commands;ii++)
-  {
-    MDI_Get_Command("@COORDS",ii,LAMMPS_comm,cmd_name);
-    cout<<ii<<' '<<cmd_name<<endl;
-  }
-  
   // Receive the number of atoms from the LAMMPS engine
   MDI_Send_Command("<NATOMS", LAMMPS_comm);
-  MDI_Recv(&natoms, 1, MDI_INT, LAMMPS_comm);// Receive the number of atoms from the LAMMPS engine
+  MDI_Recv(&natoms, 1, MDI_INT, LAMMPS_comm);
   cout << "Number of atoms: " << natoms << endl;
   coords=new double [3*natoms];
   coords_pass=new double [3*natoms];
-  types_list=new int [natoms];
   mass_list=new double [natoms];
-
+  double forces [3*natoms];
+  
   //Have the MM engine initialize a new MD simulation
   MDI_Send_Command("@INIT_MD", LAMMPS_comm);
   cout<<"initialize MD"<<endl;
@@ -141,37 +124,62 @@ int main(int argc, char **argv) {
   }
   IC.close();
 
-  /*ID=1;
-  ofstream NC("NewCoord.out");
-  for(int jj=0;jj<3*natoms;jj=jj+3)
-    {
-      coords_pass[jj]=(coords[jj]*d_conv+1.0)/d_conv;
-      coords_pass[jj+1]=(coords[jj+1]*d_conv+1.0)/d_conv;
-      coords_pass[jj+2]=(coords[jj+2]*d_conv+1.0)/d_conv;
-      NC<<ID<<' '<<coords_pass[jj]*d_conv<<' '<<coords_pass[jj+1]*d_conv<<' '<<coords_pass[jj+2]*d_conv<<endl;
-      ID=ID+1;
-  }
-  NC.close();*/
-
-  /*MDI_Send_Command(">COORDS",LAMMPS_comm);
-  MDI_Send(coords_pass,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+  MDI_Send_Command(">COORDS",LAMMPS_comm);
+  MDI_Send(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
   MDI_Send_Command("<COORDS",LAMMPS_comm);
-  MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+  MDI_Recv(coords_pass,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
   ofstream PC("Perturb_CoordFromLAMMPS.out");
   ID=1;
   for(int ii=0;ii<3*natoms;ii=ii+3){
-    PC<<ID<<' '<<coords[ii]<<' '<<coords[ii+1]<<' '<<coords[ii+2]<<endl;
+    PC<<ID<<' '<<coords_pass[ii]*d_conv<<' '<<coords_pass[ii+1]*d_conv<<' '<<coords_pass[ii+2]*d_conv<<endl;
     ID=ID+1;
   }
-  PC.close();*/
+  PC.close();
 
 
-  for(int ii=0;ii<=niterations;ii++)
+  for(int iter=0;iter<=niterations;iter++)
   {
-    MDI_Send_Command("@",LAMMPS_comm);
+    MDI_Send_Command("@FORCES",LAMMPS_comm);
     MDI_Send_Command("<@",LAMMPS_comm);
     MDI_Recv(node_name, MDI_NAME_LENGTH, MDI_CHAR, LAMMPS_comm);
     cout<<"node name: "<<node_name<<endl;
+
+    MDI_Send_Command("<COORDS",LAMMPS_comm);
+    MDI_Recv(coords,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
+    ofstream CF("CoordFromLAMMPSatFORCENODE.out");
+    ID=1;
+    for(int ii=0;ii<3*natoms;ii=ii+3){
+      CF<<ID<<' '<<coords[ii]*d_conv<<' '<<coords[ii+1]*d_conv<<' '<<coords[ii+2]*d_conv<<endl;
+      ID=ID+1;
+    }
+    CF.close();
+
+    MDI_Send_Command("<FORCES",LAMMPS_comm);
+    MDI_Recv(&forces,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
+    ofstream IF("Init_Force.out");
+    ID=1;
+    for(int ii=0;ii<3*natoms;ii=ii+3){
+      IF<<ID<<' '<<forces[ii]<<' '<<forces[ii+1]<<' '<<forces[ii+2]<<endl;
+      ID=ID+1;
+    }
+    IF.close();
+
+    MDI_Send_Command(">FORCES",LAMMPS_comm);
+    MDI_Send(&forces,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
+    MDI_Send_Command("<FORCES",LAMMPS_comm);
+    MDI_Recv(&forces,3*natoms,MDI_DOUBLE,LAMMPS_comm);
+
+    ofstream PF("Perturb_Force.out");
+    ID=1;
+    for(int ii=0;ii<3*natoms;ii=ii+3){
+      PF<<ID<<' '<<forces[ii]<<' '<<forces[ii+1]<<' '<<forces[ii+2]<<endl;
+      ID=ID+1;
+    }
+    PF.close();
 
     MDI_Send_Command("<ENERGY", LAMMPS_comm);
     MDI_Recv(&energy, 1, MDI_DOUBLE, LAMMPS_comm);
@@ -187,7 +195,7 @@ int main(int argc, char **argv) {
     MDI_Recv(node_name, MDI_NAME_LENGTH, MDI_CHAR, LAMMPS_comm);
     cout<<"node name: "<<node_name<<endl;
 
-    cout<<"iteration: "<<ii<<' '<<energy*e_conv<<' '<<ke*e_conv<<' '<<pe*e_conv<<endl;
+    cout<<"iteration: "<<iter<<' '<<energy*e_conv<<' '<<ke*e_conv<<' '<<pe*e_conv<<endl;
   }
   
   // Send the "EXIT" command to each of the engines
@@ -195,5 +203,6 @@ int main(int argc, char **argv) {
 
   // Synchronize all MPI ranks
   MPI_Barrier(world_comm);
+  MPI_Finalize();
   return 0;
 }
