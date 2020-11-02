@@ -29,7 +29,7 @@ function(UnitTest testID driverprocs lammpsprocs)
 	add_executable(${file_without_ext}${testID} ${file})
 	target_link_libraries(${file_without_ext}${testID} mdi
                       ${MPI_LIBRARIES})
-        set( driver_params -np ${driverprocs} "./${file_without_ext}" )
+        set( driver_params -np ${driverprocs} "./${file_without_ext}${testID}" )
 	set( lammps_params -np ${lammpsprocs} "/home/travis/build/srmani/UCG-GFRD-Driver/lammps/src/lmp_mpi" )
 	#set( lammps_params -np ${lammpsprocs} "/project2/gavoth/sriramvigneshm/UCG-GFRD-Project/Tests/lammps-mdi/src/lmp_mpi" )
 	message(${driver_params})
