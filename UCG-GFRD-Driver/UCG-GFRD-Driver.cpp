@@ -121,5 +121,7 @@ int main(int argc, char **argv) {
 
   // Synchronize all MPI ranks
   MPI_Barrier(world_comm);
+  MPI_Finalize();
+
   return 0;
 }
