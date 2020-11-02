@@ -23,17 +23,25 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/cg_force_pair.table DESTINATION ${CMAKE_CU
 
 file(GLOB files "test_*.cpp")
 
-foreach(file ${files})
+function(UnitTest testID driverprocs lammpsprocs)
+  foreach(file ${files})
 	string(REGEX REPLACE "(^.*/|\\.[^.]*$)" "" file_without_ext ${file})
-	add_executable(${file_without_ext} ${file})
-	target_link_libraries(${file_without_ext} mdi
+	add_executable(${file_without_ext}${testID} ${file})
+	target_link_libraries(${file_without_ext}${testID} mdi
                       ${MPI_LIBRARIES})
-        set( driver_params -np 1 "./${file_without_ext}" )
-	set( lammps_params -np 4 "/home/travis/build/srmani/UCG-GFRD-Driver/lammps/src/lmp_mpi" )
-
+        set( driver_params -np ${driverprocs} "./${file_without_ext}" )
+	set( lammps_params -np ${lammpsprocs} "/home/travis/build/srmani/UCG-GFRD-Driver/lammps/src/lmp_mpi" )
+	#set( lammps_params -np ${lammpsprocs} "/project2/gavoth/sriramvigneshm/UCG-GFRD-Project/Tests/lammps-mdi/src/lmp_mpi" )
 	message(${driver_params})
 	message(${lammps_params})
 
-	add_test(NAME ${file_without_ext} COMMAND "mpirun" ${driver_params} -mdi "-role DRIVER -name driver -method MPI" : ${lammps_params} -mdi "-role ENGINE -name LAMMPS -method MPI" -in in.lammps)
+ 	add_test(NAME ${file_without_ext}${testID} COMMAND "mpirun" ${driver_params} -mdi "-role DRIVER -name driver -method MPI" : ${lammps_params} -mdi "-role ENGINE -name LAMMPS -method MPI" -in in.lammps)
 
-endforeach()
+  endforeach()
+endfunction()
+
+
+UnitTest(1 1 1)
+UnitTest(2 1 2)
+UnitTest(3 1 3)
+
