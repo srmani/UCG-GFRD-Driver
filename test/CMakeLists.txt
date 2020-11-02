@@ -29,7 +29,7 @@ foreach(file ${files})
 	target_link_libraries(${file_without_ext} mdi
                       ${MPI_LIBRARIES})
         set( driver_params -np 1 "./${file_without_ext}" )
-	set( lammps_params -np 1 "/project2/gavoth/sriramvigneshm/UCG-GFRD-Project/Tests/lammps-mdi/src/lmp_mpi" )
+	set( lammps_params -np 1 "/home/travis/build/srmani/UCG-GFRD-Driver/lammps/src/lmp_mpi" )
 
 	message(${driver_params})
 	message(${lammps_params})
