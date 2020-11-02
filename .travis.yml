@@ -17,9 +17,10 @@ install:
     - if test "$CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install -y libmpich-dev mpich ; fi
     - source scripts/lammps.sh
     - source scripts/driver.sh
-    - cd  build
-    - make test
 
 script:
+    - cd build
+    - make test
+    - cd ..
     - source scripts/DCE.sh
 
