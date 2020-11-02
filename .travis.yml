@@ -19,8 +19,5 @@ install:
     - source scripts/driver.sh
 
 script:
-    - cd build
-    - make test
-    - cd ..
     - source scripts/DCE.sh
 
