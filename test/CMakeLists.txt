@@ -10,9 +10,6 @@ endif()
 set( mdi_include_path ${CMAKE_CURRENT_BINARY_DIR}/../UCG-GFRD-Driver/mdi/MDI_Library/ )
 set( mdi_lib_path ${CMAKE_CURRENT_BINARY_DIR}/../UCG-GFRD-Driver/mdi/MDI_Library/ )
 
-message(${mdi_include_path})
-message(${mdi_lib_path})
-
 # Link to MDI
 #-------------
 link_directories( ${mdi_lib_path} )

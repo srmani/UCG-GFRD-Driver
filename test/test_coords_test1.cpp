@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
     for(int i=0;i<15;i++)
     {
       diff=abs(init_coords[i]-receive_coords[i]*d_conv);
-      if(diff>0.0000001)
+      if(diff>0.001)
 	throw(0);
     }
   }
