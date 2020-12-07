@@ -1,14 +1,15 @@
 # **Main page of the UCG-GFRD technique**
---------------------------------------
 
 The major purpose of this tool is to perform simulations of reactive-diffusive systems in a computationally efficient manner. Typically, the  bottleneck in simulating such systems arises from the huge computational time spent on randomly diffusing the components prior to their respective reactions. This tools addresses it by combining two different multiscale techniques.
 
-## ***Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)***
+### ***Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)***
 
 
-## **Ultra-Coarse-Graining(UCG):** System components in this approach are represented using explicit particles. Briefly, the method involves: (i) dividing the phase-space of the system into discrete states; the states can represent chemical changes like reactants/products and/or conformational changes like folded/unfolded states and (ii) constructing coarse-grained (CG) model anddeveloping effective CG potential for each state. The system discretely transitions to different states and between each transition, it evolves continuously in time using the CG potential of the current state in a regular MD technique. These transitions mimic the reactions of interest and the rules governing the transitions include the conformational energetic differences between the states thereby relating the fluctuations to reactions.
+## **Ultra-Coarse-Graining(UCG):** 
+System components in this approach are represented using explicit particles. Briefly, the method involves: (i) dividing the phase-space of the system into discrete states; the states can represent chemical changes like reactants/products and/or conformational changes like folded/unfolded states and (ii) constructing coarse-grained (CG) model anddeveloping effective CG potential for each state. The system discretely transitions to different states and between each transition, it evolves continuously in time using the CG potential of the current state in a regular MD technique. These transitions mimic the reactions of interest and the rules governing the transitions include the conformational energetic differences between the states thereby relating the fluctuations to reactions.
 
-##**Green's Function Reaction Dynamics(GFRD):** It is a mesoscale level technique. The Green's function of Einstein's diffusion equation is solved to propagate the randomly diffusing particles in time. This approach involves encompassing those particles in spherical domains and creating an ordered event list consisting of their domain exit time calculated from the Green's function.
+## **Green's Function Reaction Dynamics(GFRD):** 
+It is a mesoscale level technique. The Green's function of Einstein's diffusion equation is solved to propagate the randomly diffusing particles in time. This approach involves encompassing those particles in spherical domains and creating an ordered event list consisting of their domain exit time calculated from the Green's function.
 
 For complete story, refer to the following journal articlese:
 1) The Theory of Ultra-Coarse-Graining. 1. General Principles
