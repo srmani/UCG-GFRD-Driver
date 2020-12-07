@@ -8,6 +8,9 @@ System components in this approach are represented using explicit particles. Bri
 ## **Green's Function Reaction Dynamics (GFRD):** 
 It is a mesoscale level technique. The Green's function of Einstein's diffusion equation is solved to propagate the randomly diffusing particles in time. This approach involves encompassing those particles in spherical domains and creating an ordered event list consisting of their domain exit time calculated from the Green's function.
 
+![UCG-GFRD Schematic](images/MethodSchematic.png)
+
+
 For complete story, refer to the following journal articles:
 1) The Theory of Ultra-Coarse-Graining. 1. General Principles
 [![DOI for Citing UCG1](https://img.shields.io/badge/DOI%3A-https%3A%2F%2Fdoi.org%2F10.1021%2Fct4000444-green)](https://doi.org/10.1021/ct4000444)
