@@ -1,4 +1,11 @@
-MolSSI-MDI based driver combining Ultra-Coarse-Graining (UCG)and Green's Function Reaction Dynamics
+**Main Page of UCG-GFRD technique**
+-----------------------------------
+
+The main purpose of the tool is to perform simulations of reactive-diffusive systems in a computationally efficient manner. Typically, the major bottleneck in simulating such systems arises from the random diffusion of the components prior to their respective reactions. This tools addresses it by combining two different multiscale techniques
+1) Ultra-Coarse-Graining (UCG)
+2) Green's Function Reaction Dynamics (GFRD)
+
+MolSSI-MDI based driver combining Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)
 
 Refer to the following journal articles to understand the UCG and GFRD technique:
 1) The Theory of Ultra-Coarse-Graining. 1. General Principles
@@ -12,6 +19,10 @@ Refer to the following journal articles to understand the UCG and GFRD technique
 
 4) Combining Molecular Dynamics with Mesoscopic Green's Function Reaction Dynamics Simulations
 [![DOI for Citing GFRD2](https://img.shields.io/badge/DOI%3A%20-%20https%3A%2F%2Fdoi.org%2F10.1063%F1.4936254-green)](https://doi.org/10.1063/1.4936254)
+
+
+Purpose:
+
 
 
 
