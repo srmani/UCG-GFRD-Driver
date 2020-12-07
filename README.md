@@ -40,7 +40,7 @@ The UCG-GFRD package works with LAMMPS. UCG is implemented as a LAMMPS ***fix***
 The UCG-GFRD package is implemented using [MolSSI-MDI](https://www.sciencedirect.com/science/article/pii/S0010465520303386) standards. The MDI based driver acts as a interface between the LAMMPS and the GFRD engine. It ensures seamless passing and integration of required data across the engines at required simulation timesteps.
 
 **Important features of the package are**
-1) Each engine is separate and is not dependent on the other engine
-2) Each engine-driver pair can be executed separately without the other engine
-   a) LAMMPS-driver: simulate the entire system with explicit particles
-   b) GFRD-driver: simulate the entire system using only GFRD domains
+1. Each engine is separate and is not dependent on the other engine
+2. Each engine-driver pair can be executed separately without the other engine
+  - LAMMPS-driver: simulate the entire system with explicit particles
+  - GFRD-driver: simulate the entire system using only GFRD domains
