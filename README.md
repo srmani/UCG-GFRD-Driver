@@ -1,6 +1,6 @@
 # **Main page of the UCG-GFRD technique**
 
-The major purpose of this tool is to perform simulations of reactive-diffusive systems in a computationally efficient manner. Typically, the  bottleneck in simulating such systems arises from the huge computational time spent on randomly diffusing the components prior to their respective reactions. This tool addresses it by combining two different multiscale techniques:***Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)***
+The major purpose of this tool is to perform simulations of reactive-diffusive systems in a computationally efficient manner. Typically, the  bottleneck in simulating such systems arises from the huge computational time spent on randomly diffusing the components prior to their respective reactions. This tool addresses it by combining two different multiscale techniques: ***Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)***
 
 ## **Ultra-Coarse-Graining (UCG):** 
 System components in this approach are represented using explicit particles. Briefly, the method involves: (i) dividing the phase-space of the system into discrete states; the states can represent chemical changes like reactants/products and/or conformational changes like folded/unfolded states and (ii) constructing coarse-grained (CG) model and developing effective CG potential for each state. The system discretely transitions to different states and between each transition, it evolves continuously in time using the CG potential of the current state in a regular MD technique. These transitions mimic the reactions of interest and the rules governing the transitions include the conformational energetic differences between the states thereby relating the fluctuations to reactions.
@@ -20,17 +20,27 @@ For complete story, refer to the following journal articles:
 4) Combining Molecular Dynamics with Mesoscopic Green's Function Reaction Dynamics Simulations
 [![DOI for Citing GFRD2](https://img.shields.io/badge/DOI%3A%20-%20https%3A%2F%2Fdoi.org%2F10.1063%F1.4936254-green)](https://doi.org/10.1063/1.4936254)
 
----
 ## **How to use**
----
 
 The UCG-GFRD package works with LAMMPS. UCG is implemented as a LAMMPS ***fix***. GFRD is implemented as a standalone tool. The MolSSI-MDI driver interconnects UCG and the GFRD package
 
-- Download the latest MDI-enabled version of [LAMMPS] (https://github.com/MolSSI-MDI/lammps/tree/mdi)
+- Download the latest MDI-enabled version of [LAMMPS](https://github.com/MolSSI-MDI/lammps/tree/mdi)
 - Download the [UCG](https://github.com/srmani/UCG) source files. Copy them into the ***src*** directory of the LAMMPS
-- Build LAMMPS following the [procedure](https://lammps.sandia.gov/doc/Build.html). Key steps are:
+- Build LAMMPS following the [procedure](https://lammps.sandia.gov/doc/Build.html). Key steps are
   - make lib-mdi args="-m mpi"
   - make yes-user-mdi
   - make mpi
+- Download the [GFRD](https://github.com/srmani/GFRD) package
+- Download the [UCG-GFRD-Driver](https://github.com/srmani/UCG-GFRD-Driver)
 
-![Overall Driver-Engine Structure](images/OverallStructure.png)
+## **Basic UCG-GFRD package architecture**
+
+![UCG-GFRD package architecture](images/BasicArchitecture.png)
+
+The UCG-GFRD package is implemented using [MolSSI-MDI](https://www.sciencedirect.com/science/article/pii/S0010465520303386) standards. The MDI based driver acts as a interface between the LAMMPS and the GFRD engine. It ensures seamless passing and integration of required data across the engines at required simulation timesteps.
+
+**Important features of the package are**
+1) Each engine is separate and is not dependent on the other engine
+2) Each engine-driver pair can be executed separately without the other engine
+   a) LAMMPS-driver: simulate the entire system with explicit particles
+   b) GFRD-driver: simulate the entire system using only GFRD domains
