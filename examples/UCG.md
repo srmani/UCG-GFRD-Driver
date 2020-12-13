@@ -1,5 +1,6 @@
-layout: page
+---
+layout: default
 title: "UCG Example"
-permalink: /examples/UCG/
+---
 
-# **Page under construction**
+**Page under construction**
