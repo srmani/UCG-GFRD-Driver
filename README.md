@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # **Main page of the UCG-GFRD technique**
 
 The major purpose of this tool is to perform simulations of reactive-diffusive systems in a computationally efficient manner. Typically, the  bottleneck in simulating such systems arises from the huge computational time spent on randomly diffusing the components prior to their respective reactions. This tool addresses it by combining two different multiscale techniques: ***Ultra-Coarse-Graining (UCG) and Green's Function Reaction Dynamics (GFRD)***
