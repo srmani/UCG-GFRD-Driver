@@ -24,14 +24,13 @@ For complete story, refer to the following journal articles:
 
 The UCG-GFRD package works with LAMMPS. UCG is implemented as a LAMMPS ***fix***. GFRD is implemented as a standalone tool. The MolSSI-MDI driver interconnects UCG and the GFRD package
 
-- Download the latest MDI-enabled version of [LAMMPS](https://github.com/MolSSI-MDI/lammps/tree/mdi)
-- Download the [UCG](https://github.com/srmani/UCG) source files. Copy them into the ***src*** directory of the LAMMPS
+- Clone the latest MDI-enabled version of [LAMMPS](https://github.com/srmani/MDI-lammps.git)
 - Build LAMMPS following the [procedure](https://lammps.sandia.gov/doc/Build.html). Key steps are
   - make lib-mdi args="-m mpi"
   - make yes-user-mdi
   - make mpi
-- Download the [GFRD](https://github.com/srmani/GFRD) package
-- Download the [UCG-GFRD-Driver](https://github.com/srmani/UCG-GFRD-Driver)
+- Clone the [GFRD](https://github.com/srmani/GFRD) package
+- Clone the [UCG-GFRD-Driver](https://github.com/srmani/UCG-GFRD-Driver)
 
 ## **Basic UCG-GFRD package architecture**
 
@@ -39,8 +38,17 @@ The UCG-GFRD package works with LAMMPS. UCG is implemented as a LAMMPS ***fix***
 
 The UCG-GFRD package is implemented using [MolSSI-MDI](https://www.sciencedirect.com/science/article/pii/S0010465520303386) standards. The MDI based driver acts as a interface between the LAMMPS and the GFRD engine. It ensures seamless passing and integration of required data across the engines at required simulation timesteps.
 
+
+## **Commands supported by the GFRD Engine**
+
+The following commands will be supported by the GFRD engine in @DEFAULT MDI node
+
+|     | @DEFAULT |
+| --- |   ---    |
+| <CELL | [!Yes](images/Yes.png) |
+
 **Important features of the package are**
 1. Each engine is separate and is not dependent on the other engine
 2. Each engine-driver pair can be executed separately without the other engine
-  - LAMMPS-driver: simulate the entire system with explicit particles
-  - GFRD-driver: simulate the entire system using only GFRD domains
+  - LAMMPS-engine: simulate the entire system with explicit particles
+  - GFRD-engine: simulate the entire system using only GFRD domains
