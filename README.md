@@ -45,7 +45,12 @@ The following commands will be supported by the GFRD engine in @DEFAULT MDI node
 
 |     | @DEFAULT |
 | --- |   ---    |
-| <CELL | [!Yes](images/Yes.png) |
+| <CELL | ![Yes](images/Yes.png)|
+| >CELL | ![Yes](images/Yes.png)|
+| <COORDS | ![Yes](images/Yes.png)|
+| >COORDS | ![Yes](images/Yes.png)|
+| <MASSES | ![Yes](images/Yes.png)|
+| <NATOMS | ![Yes](images/Yes.png)|
 
 **Important features of the package are**
 1. Each engine is separate and is not dependent on the other engine
