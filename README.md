@@ -41,16 +41,16 @@ The UCG-GFRD package is implemented using [MolSSI-MDI](https://www.sciencedirect
 
 ## **Commands supported by the GFRD Engine**
 
-The following commands will be supported by the GFRD engine in @DEFAULT MDI node
+The following commands will be supported by the GFRD engine in @DEFAULT MDI node (![Yes](images/box-brightgreen.svg):Yes, ![No](images/box-red.svg):No). Refer to the [MDI Standards](https://molssi-mdi.github.io/MDI_Library/html/mdi_standard.html) for a complete list of commands that can be incorporated with an engine.
 
 |     | @DEFAULT |
 | --- |   ---    |
 | <CELL | ![Yes](images/box-brightgreen.svg)|
-| >CELL | ![Yes](images/Yes.png)|
-| <COORDS | ![Yes](images/Yes.png)|
-| >COORDS | ![Yes](images/Yes.png)|
-| <MASSES | ![Yes](images/Yes.png)|
-| <NATOMS | ![Yes](images/Yes.png)|
+| >CELL | ![Yes](images/box-brightgreen.svg)|
+| <COORDS | ![Yes](images/box-brightgreen.svg)|
+| >COORDS | ![Yes](images/box-brightgreen.svg)|
+| <MASSES | ![Yes](images/box-brightgreen.svg)|
+| <NATOMS | ![Yes](images/box-brightgreen.svg)|
 
 **Important features of the package are**
 1. Each engine is separate and is not dependent on the other engine
