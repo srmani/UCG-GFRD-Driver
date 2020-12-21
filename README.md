@@ -45,7 +45,7 @@ The following commands will be supported by the GFRD engine in @DEFAULT MDI node
 
 |     | @DEFAULT |
 | --- |   ---    |
-| <CELL | ![Yes](images/Yes.png)|
+| <CELL | ![Yes](images/box-brightgreen.svg)|
 | >CELL | ![Yes](images/Yes.png)|
 | <COORDS | ![Yes](images/Yes.png)|
 | >COORDS | ![Yes](images/Yes.png)|
